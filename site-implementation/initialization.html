@@ -1,0 +1,393 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Initialization · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-hints/plugin-hints.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="page-view-tracking.html" />
+    
+    
+    <link rel="prev" href="../ensighten-implementation/create-site-configuration-tag.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Prerequisites
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Ensighten Implementation</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../ensighten-implementation/create-a-new-space.html">
+            
+                <a href="../ensighten-implementation/create-a-new-space.html">
+            
+                    
+                    1. Create a new space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../ensighten-implementation/update-namespace.html">
+            
+                <a href="../ensighten-implementation/update-namespace.html">
+            
+                    
+                    2. Update Namespace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../ensighten-implementation/add-to-global-template.html">
+            
+                <a href="../ensighten-implementation/add-to-global-template.html">
+            
+                    
+                    3. Add To Global Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../ensighten-implementation/create-site-configuration-tag.html">
+            
+                <a href="../ensighten-implementation/create-site-configuration-tag.html">
+            
+                    
+                    4. Create Site Configuration Tag
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Site Implementation</li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="initialization.html">
+            
+                <a href="initialization.html">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="page-view-tracking.html">
+            
+                <a href="page-view-tracking.html">
+            
+                    
+                    Page View Tracking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="interaction-tracking.html">
+            
+                <a href="interaction-tracking.html">
+            
+                    
+                    Interaction Tracking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="game-tracking.html">
+            
+                <a href="game-tracking.html">
+            
+                    
+                    Game Tracking
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Initialization</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="initialization">Initialization</h1>
+<p>A global standards implementation starts with two steps. In the <code>&lt;head&gt;</code> of every page:</p>
+<ol>
+<li>Add a JavaScript Object named <strong>turner_metadata</strong> with an empty <strong>trackAction</strong> array.</li>
+<li>Add a call to an external JavaScript file; the Ensighten <strong>Bootstrap.js</strong>.</li>
+</ol>
+<p><div class="alert alert-undefined hints-alert"><div class="hints-icon"><i class="undefined"></i></div><div class="hints-container"><p><strong>Turner Metadata Object</strong>  </p>
+<p>In the context of HTML based content (e.g., web sites), the <strong>turner_metadata</strong> object is:</p>
+<ul>
+<li>A window-scoped variable</li>
+<li>Defined as turner_metadata</li>
+<li>Follows JSON Syntax</li>
+<li>Must contain trackAction array</li>
+</ul>
+</div></div></p>
+<p><div class="alert alert-info hints-alert"><div class="hints-icon"><i class="fa fa-info-circle"></i></div><div class="hints-container"><p><strong>OneTrust Banner</strong>  </p>
+<p>OneTrust banner script should be implemented by the site dev team. Analytics team does not provide the script.<br>Once the OneTrust banner has implemented, <strong>OnetrustActiveGroups</strong> variable should be created, and it must contain at least one of the following category IDs:</p>
+<ul>
+<li>Category 1 - Strictly Necessary</li>
+<li>Category 2 - Performance</li>
+<li>Category 3 - Functional</li>
+<li>Category 4 - Targeting</li>
+<li>Category 8 - Social Media</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Implement the black veil overlay, so the users cannot navigate into the site until they agree to the user consent.</li>
+<li>Reload the page once the users agree to the user consent, so you can capture the initial pageview.</li>
+</ul>
+</div></div></p>
+<h4 id="example-code">Example Code:</h4>
+<pre><code class="lang-text">&lt;html&gt;
+  &lt;head&gt;
+      &lt;script&gt;
+          var turner_metadata = {
+              &quot;trackAction&quot; : []
+          };
+      &lt;/script&gt;
+      &lt;script src=&quot;//nexus.ensighten.com/turnerintl/example-space/Bootstrap.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+&lt;/html&gt;
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../ensighten-implementation/create-site-configuration-tag.html" class="navigation navigation-prev " aria-label="Previous page: 4. Create Site Configuration Tag">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="page-view-tracking.html" class="navigation navigation-next " aria-label="Next page: Page View Tracking">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Initialization","level":"3.1","depth":1,"next":{"title":"Page View Tracking","level":"3.2","depth":1,"path":"site-implementation/page-view-tracking.md","ref":"site-implementation/page-view-tracking.md","articles":[]},"previous":{"title":"4. Create Site Configuration Tag","level":"2.4","depth":1,"path":"ensighten-implementation/create-site-configuration-tag.md","ref":"ensighten-implementation/create-site-configuration-tag.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"site-implementation/initialization.md","mtime":"2020-02-10T18:40:34.810Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-10T18:45:27.833Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
